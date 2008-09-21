@@ -11,29 +11,33 @@ Returns::
 
     Author: Greg Newman > greg@20seven.org
 """
-
+from django import template
 import hashlib
 import time
 import datetime
 import os
 
-register = Library()
+def _cleanfilename(filename):
+    
+    return os.path.splitext(filename)[0]
 
 def _hashit(filename):
     cb = hashlib.sha1()
-    cb.update(os.path.splitext(filename)[0])
+    cb.update(filename)
     cb.update(str(datetime.datetime.now()))
     
     return str(cb.hexdigest())
 
 def js_tag(filename):
+    f = _cleanfilename(filename)
 
-    return filename + ".js?" + _hashit(filename)
+    return f + ".js?" + _hashit(f)
 
 def css_tag(filename):
+    f = _cleanfilename(filename)
 
-    return filename + ".css?" + _hashit(filename)
+    return f + ".css?" + _hashit(f)
 
-
-register.tag('css_tag', css_tag)
-register.tag('js_tag', js_tag)
+register = template.Library()
+register.simple_tag(js_tag)
+register.simple_tag(css_tag)
