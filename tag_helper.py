@@ -1,9 +1,10 @@
 """ 
-returns the javascript filename with a cachebuster apppended 
-example: cachebuster_tag(filename_without_extension)
->>> filename_without_extension.js?hash
-"""
+returns the tagged filename with the cachebuster apppended 
+example: js_tag('test.js') or js_tag('test')
+>>> test.js?188a8a2c905fac2670ec4b254d40dadcc7f93f7a
 
+Author: Greg Newman > greg@20seven.org
+"""
 
 import hashlib
 import time
@@ -17,14 +18,14 @@ def _hashit(filename):
     
     return str(cb.hexdigest())
 
-def cbuster_jstag(filename):
+def js_tag(filename):
 
     return filename + ".js?" + _hashit(filename)
 
-def cbuster_csstag(filename):
+def css_tag(filename):
 
     return filename + ".css?" + _hashit(filename)
 
 
-print cbuster_jstag("test")
-print cbuster_csstag("testcss")
+print js_tag("test")
+print css_tag("testcss")
