@@ -2,7 +2,9 @@
 This will return the filename with the cachebuster apppended 
 
 Useage::
-    {% js_tag 'test.js' %} or {% js_tag 'test' %}
+    {% js_tag 'test.js' %}
+        or 
+    {% js_tag 'test' %}
 
 Returns::
     test.js?188a8a2c905fac2670ec4b254d40dadcc7f93f7a
