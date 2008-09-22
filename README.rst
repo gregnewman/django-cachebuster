@@ -30,6 +30,3 @@ CSS
  
 
 
-**TODO**
-
-Change the time to use the files time instead of system time.
