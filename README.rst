@@ -7,6 +7,13 @@ Using the template tags will return a full css or javascript tag with the filena
 
 **Usage**
 
+Load the tag
+
+::
+  
+  {% load tag_helper %}
+
+
 Javascript
 
 ::
