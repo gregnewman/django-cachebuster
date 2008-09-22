@@ -11,13 +11,23 @@ Javascript
 
 ::
 
-  {% js_tag somejsfile.js %} >> somejsfile.js?98960263c918137c7678eae54e689ea7407fc5fe
+  {% js_tag "jquery.js" %} or {% js_tag "jquery" %}
+  
+  will return
+
+  <script src="/site_media/jquery.js?e90301f912ab5c1b72d6422aa690d76c1cbff357/" type="text/javascript"></script> 
+  
 
 CSS
 
 ::
 
-  {% css_tag somecssfile.js %} >> somecssfile.css?98960263c918137c7678eae54e689ea7407fc5fe
+  {% css_tag "base.css" %} or {% css_tag "base" %}
+ 
+   will return
+  
+  <link rel="stylesheet" href="/site_media/base.css?aa3117fb84ed9fddcd93ba62e459bf2211262ae4" />
+ 
 
 
 **TODO**
