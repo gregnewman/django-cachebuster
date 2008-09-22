@@ -39,7 +39,7 @@ def _hashit(filename):
     return str(cb.hexdigest())
 
 def js_tag(filename):
-    tag = "<script src=\"%s%s/\" type=\"text/javascript\"></script>" % (settings.MEDIA_URL, _cleanfilename(filename) + ".js?" + _hashit(filename))
+    tag = "<script src=\"%s%s\" type=\"text/javascript\"></script>" % (settings.MEDIA_URL, _cleanfilename(filename) + ".js?" + _hashit(filename))
     
     return tag 
 
