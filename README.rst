@@ -2,7 +2,7 @@
 Cachebuster Template Tags
 =========================
 
-Just that.  Use the cachebuster tag_helpers to ensure the browswers are not caching your css or javascript edits.
+Use the cachebuster tag_helpers to ensure the browswers are not caching your css or javascript edits.
 Using the template tags will return a full css or javascript tag with the filename and a sha1 string appended based on the name of the file and the edit date of the file.  When the file is changed the hash is also updated.
 
 **Usage**
