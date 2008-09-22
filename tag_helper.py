@@ -39,12 +39,14 @@ def _hashit(filename):
     return str(cb.hexdigest())
 
 def js_tag(filename):
-
-    return _cleanfilename(filename) + ".js?" + _hashit(filename)
+    tag = "<script src=\"%s/%s/\" type=\"text/javascript\"></script>" % (settings.MEDIA_URL, _cleanfilename(filename) + ".js?" + _hashit(filename))
+    
+    return tag 
 
 def css_tag(filename):
+    tag = "<link rel=\"stylesheet\" href=\"%s/%s\" />" % (settings.MEDIA_URL, _cleanfilename(filename) + ".css?" + _hashit(filename))
 
-    return _cleanfilename(filename) + ".css?" + _hashit(filename)
+    return tag
 
 register = template.Library()
 register.simple_tag(js_tag)
