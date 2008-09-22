@@ -22,4 +22,4 @@ CSS
 
 **TODO**
 
-Reduce the length of the sha1 output.  It's a little long for my taste.
+Change the time to use the files time instead of system time.
