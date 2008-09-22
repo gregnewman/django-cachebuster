@@ -2,8 +2,8 @@
 Cachebuster Template Tags
 =========================
 
-Just that.  Use to ensure the browswers are not caching your css or javascript edits.
-Using the template tags will return a filename with a sha1 string appended based on the name of the file and the current datetime.
+Just that.  Use the cachebuster tag_helpers to ensure the browswers are not caching your css or javascript edits.
+Using the template tags will return a full css or javascript tag with the filename and a sha1 string appended based on the name of the file and the edit date of the file.  When the file is changed the hash is also updated.
 
 **Usage**
 
@@ -15,7 +15,7 @@ Javascript
   
   will return
 
-  <script src="/site_media/jquery.js?e90301f912ab5c1b72d6422aa690d76c1cbff357/" type="text/javascript"></script> 
+  <script src="/site_media/jquery.js?e90301f912ab5c1b72d6422aa690d76c1cbff357" type="text/javascript"></script> 
   
 
 CSS
