@@ -12,31 +12,39 @@ Returns::
     Author: Greg Newman > greg@20seven.org
 """
 from django import template
+from django.conf import settings
 import hashlib
 import time
 import datetime
 import os
+from distutils.dir_util import mkpath
+
 
 def _cleanfilename(filename):
     
     return os.path.splitext(filename)[0]
 
+def _getfiletime(filename):
+    basedir = "%s/" % (settings.MEDIA_ROOT)
+    if os.path.exists(basedir + "/" + filename):
+        return os.path.getmtime(basedir + "/" + filename)
+    else:
+        return ""
+
 def _hashit(filename):
     cb = hashlib.sha1()
-    cb.update(filename)
-    cb.update(str(datetime.datetime.now()))
+    cb.update(_cleanfilename(filename))
+    cb.update(str(_getfiletime(filename)))
     
     return str(cb.hexdigest())
 
 def js_tag(filename):
-    f = _cleanfilename(filename)
 
-    return f + ".js?" + _hashit(f)
+    return _cleanfilename(filename) + ".js?" + _hashit(filename)
 
 def css_tag(filename):
-    f = _cleanfilename(filename)
 
-    return f + ".css?" + _hashit(f)
+    return _cleanfilename(filename) + ".css?" + _hashit(filename)
 
 register = template.Library()
 register.simple_tag(js_tag)
